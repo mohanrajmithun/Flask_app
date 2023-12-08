@@ -12,11 +12,11 @@ PASSWORD = 'password123'
 
 import pyodbc
 import sqlserverport
-servername = 'DESKTOP-VOE2SHH'
-serverspec = '{0},{1}'.format(
-    servername,
-    sqlserverport.lookup(servername, 'MSSQLSERVER'))
-print(serverspec)
+# servername = 'DESKTOP-VOE2SHH'
+# serverspec = '{0},{1}'.format(
+#     servername,
+#     sqlserverport.lookup(servername, 'MSSQLSERVER'))
+# print(serverspec)
 connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
 # conn = pyodbc.connect('DRIVER=ODBC Driver 17 for SQL Server;SERVER={};...'.format(serverspec))
 conn = pyodbc.connect(connectionString)
@@ -53,3 +53,6 @@ for r in records:
 #     print(row)
 
 # connection.close()
+
+#to make pyodbc work in linux
+# $ sudo apt install unixodbc
