@@ -18,7 +18,7 @@ import sqlserverport
 #     servername,
 #     sqlserverport.lookup(servername, 'MSSQLSERVER'))
 # print(serverspec)
-connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};PORT={PORT};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+connectionString = f'DRIVER={{SQL Server}};SERVER={SERVER};PORT={PORT};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
 # conn = pyodbc.connect('DRIVER=ODBC Driver 17 for SQL Server;SERVER={};...'.format(serverspec))
 conn = pyodbc.connect(connectionString)
 cursor = conn.cursor()
