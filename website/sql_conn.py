@@ -9,6 +9,7 @@ DATABASE = 'Website'
 
 USERNAME = 'Mithun_sql'
 PASSWORD = 'password123'
+PORT = '1433'
 
 import pyodbc
 import sqlserverport
@@ -17,7 +18,7 @@ import sqlserverport
 #     servername,
 #     sqlserverport.lookup(servername, 'MSSQLSERVER'))
 # print(serverspec)
-connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+connectionString = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={SERVER};PORT={PORT};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
 # conn = pyodbc.connect('DRIVER=ODBC Driver 17 for SQL Server;SERVER={};...'.format(serverspec))
 conn = pyodbc.connect(connectionString)
 cursor = conn.cursor()
