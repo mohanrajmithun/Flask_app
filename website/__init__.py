@@ -17,7 +17,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'MY SUPER SECRET KEY'
     # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
-    # app.config["SQLALCHEMY_DATABASE_URI"] = 'mssql+pymssql://Mithun_sql:password123@DESKTOP-VOE2SHH/Website'
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://root:mysqlcar0596@DESKTOP-VOE2SHH/Website'
     # app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://Mithun_sql:password123@DESKTOP-VOE2SHH/Website?driver=ODBC Driver 17 for SQL Server"
     # url_object = URL.create(
     # "mssql+pyodbc",
@@ -29,8 +29,6 @@ def create_app():
 
     # app.config['SQLALCHEMY_BINDS'] = {'url':url_object}
 
-    params = urllib.parse.quote_plus('DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-VOE2SHH;DATABASE=Website;USERNAME=Mithun_sql;PASSWORD=password123;Trusted_Connection=yes;')
-    app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
 
   
 

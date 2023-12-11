@@ -2,31 +2,48 @@ from urllib import parse
 import pyodbc
 from sqlalchemy import create_engine
 import urllib
+import mysql.connector
 
-SQL_QUERY = 'SELECT name FROM master.dbo.sysdatabases'
-SERVER = 'DESKTOP-VOE2SHH'
-DATABASE = 'Website'
+mydb = mysql.connector.connect(
+    host="DESKTOP-VOE2SHH",
+    user="root",
+    passwd="mysqlcar0596"
+    # database = "Website"
+)
 
-USERNAME = 'Mithun_sql'
-PASSWORD = 'password123'
-PORT = '1433'
+my_cursor = mydb.cursor()
 
-import pyodbc
-import sqlserverport
+# my_cursor.execute("CREATE DATABASE Website")
+
+my_cursor.execute("SHOW DATABASES")
+
+
+for db in my_cursor:
+    print(db)
+# SQL_QUERY = 'SELECT name FROM master.dbo.sysdatabases'
+# SERVER = 'DESKTOP-VOE2SHH'
+# DATABASE = 'Website'
+
+# USERNAME = 'Mithun_sql'
+# PASSWORD = 'password123'
+# PORT = '1433'
+
+# import pyodbc
+# import sqlserverport
 # servername = 'DESKTOP-VOE2SHH'
 # serverspec = '{0},{1}'.format(
 #     servername,
 #     sqlserverport.lookup(servername, 'MSSQLSERVER'))
 # print(serverspec)
-connectionString = f'DRIVER={{SQL Server}};SERVER={SERVER};PORT={PORT};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
-# conn = pyodbc.connect('DRIVER=ODBC Driver 17 for SQL Server;SERVER={};...'.format(serverspec))
-conn = pyodbc.connect(connectionString)
-cursor = conn.cursor()
-cursor.execute(SQL_QUERY)
+# connectionString = f'DRIVER={{SQL Server}};SERVER={SERVER};PORT={PORT};DATABASE={DATABASE};UID={USERNAME};PWD={PASSWORD}'
+# # conn = pyodbc.connect('DRIVER=ODBC Driver 17 for SQL Server;SERVER={};...'.format(serverspec))
+# conn = pyodbc.connect(connectionString)
+# cursor = conn.cursor()
+# cursor.execute(SQL_QUERY)
 
-records = cursor.fetchall()
-for r in records:
-    print(r)
+# records = cursor.fetchall()
+# for r in records:
+#     print(r)
 
 
 # params = parse.quote_plus \
