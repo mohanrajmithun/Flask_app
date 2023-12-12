@@ -1,25 +1,47 @@
-from urllib import parse
-import pyodbc
+# from urllib import parse
+# import pyodbc
 from sqlalchemy import create_engine
-import urllib
+# import urllib
 import mysql.connector
 
-mydb = mysql.connector.connect(
-    host="DESKTOP-VOE2SHH",
-    user="root",
-    passwd="mysqlcar0596"
-    # database = "Website"
-)
+import MySQLdb
 
-my_cursor = mydb.cursor()
+db = MySQLdb.connect(host="DESKTOP-VOE2SHH",
+    user="root",
+    passwd="mysqlcar0596",  # your password
+    db="Website")        # name of the data base
+
+# you must create a Cursor object. It will let
+#  you execute all the queries you need
+cur = db.cursor()
+
+# Use all the SQL you like
+cur.execute("SELECT * FROM user")
+
+# print all the first cell of all the rows
+for row in cur.fetchall():
+    print(row)
+
+db.close()
+
+# mydb = mysql.connector.connect(
+#     host="DESKTOP-VOE2SHH",
+#     user="root",
+#     passwd="mysqlcar0596",
+#     port="3306",
+#     auth_plugin='mysql_native_password'
+#     # database = "Website"
+# )
+
+# my_cursor = mydb.cursor()
 
 # my_cursor.execute("CREATE DATABASE Website")
 
-my_cursor.execute("SHOW DATABASES")
+# my_cursor.execute("SHOW DATABASES")
 
 
-for db in my_cursor:
-    print(db)
+# for db in my_cursor:
+#     print(db)
 # SQL_QUERY = 'SELECT name FROM master.dbo.sysdatabases'
 # SERVER = 'DESKTOP-VOE2SHH'
 # DATABASE = 'Website'
