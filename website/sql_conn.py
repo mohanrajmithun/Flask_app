@@ -36,7 +36,7 @@ mydb = mysql.connector.connect(
 
 my_cursor = mydb.cursor()
 
-# my_cursor.execute("CREATE DATABASE Website")
+my_cursor.execute("CREATE DATABASE Website")
 
 my_cursor.execute("SHOW DATABASES")
 
