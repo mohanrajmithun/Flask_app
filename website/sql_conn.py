@@ -4,44 +4,45 @@ from sqlalchemy import create_engine
 # import urllib
 import mysql.connector
 
-import MySQLdb
+# import MySQLdb
 
-db = MySQLdb.connect(host="DESKTOP-VOE2SHH",
-    user="root",
-    passwd="mysqlcar0596",  # your password
-    db="Website")        # name of the data base
-
-# you must create a Cursor object. It will let
-#  you execute all the queries you need
-cur = db.cursor()
-
-# Use all the SQL you like
-cur.execute("SELECT * FROM user")
-
-# print all the first cell of all the rows
-for row in cur.fetchall():
-    print(row)
-
-db.close()
-
-# mydb = mysql.connector.connect(
-#     host="DESKTOP-VOE2SHH",
+# db = MySQLdb.connect(host="my-flask-database.c4npblyzxftl.us-east-1.rds.amazonaws.com",
 #     user="root",
-#     passwd="mysqlcar0596",
-#     port="3306",
-#     auth_plugin='mysql_native_password'
-#     # database = "Website"
-# )
+#     passwd="mysqlcar0596",  # your password
+#     # db="Website"
+#     )        # name of the data base
 
-# my_cursor = mydb.cursor()
+# # you must create a Cursor object. It will let
+# #  you execute all the queries you need
+# cur = db.cursor()
+
+# # Use all the SQL you like
+# cur.execute("SHOW DATABASES")
+
+# # print all the first cell of all the rows
+# for row in cur.fetchall():
+#     print(row)
+
+# db.close()
+
+mydb = mysql.connector.connect(
+    host="my-flask-database.c4npblyzxftl.us-east-1.rds.amazonaws.com",
+    user="root",
+    passwd="mysqlcar0596",
+    port="3306",
+    auth_plugin='mysql_native_password'
+    # database = "Website"
+)
+
+my_cursor = mydb.cursor()
 
 # my_cursor.execute("CREATE DATABASE Website")
 
-# my_cursor.execute("SHOW DATABASES")
+my_cursor.execute("SHOW DATABASES")
 
 
-# for db in my_cursor:
-#     print(db)
+for db in my_cursor:
+    print(db)
 # SQL_QUERY = 'SELECT name FROM master.dbo.sysdatabases'
 # SERVER = 'DESKTOP-VOE2SHH'
 # DATABASE = 'Website'
